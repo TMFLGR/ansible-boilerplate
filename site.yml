@@ -1,0 +1,4 @@
+---
+- hosts: all
+  roles:
+    - 1_prepare_system

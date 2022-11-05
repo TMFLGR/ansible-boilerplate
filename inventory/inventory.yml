@@ -1,0 +1,7 @@
+---
+# https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
+all:
+  vars:
+  hosts:
+    example.fqdn:
+      ansible_host: 10.10.10.10 # or fqdn

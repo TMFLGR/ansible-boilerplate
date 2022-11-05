@@ -1,0 +1,28 @@
+---
+- name: dist update all packages
+  apt:
+    update_cache: yes
+    upgrade: dist
+  become: yes
+  reister: dist_update
+  until: dist_update is not failed
+  retries: 5
+  delay: 3
+
+- name: install apt packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+  vars: 
+    packages:
+      - python3
+      - python3-pip
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+  become: yes
+  register: python3_var
+  until: python3_var is not failed
+  retries: 5
+  delay: 3
